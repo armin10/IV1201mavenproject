@@ -23,7 +23,7 @@ import model.Stock;
 @Stateless
 public class CashierFacade {
 
-    @PersistenceContext(unitName = "bankPU")
+    @PersistenceContext(unitName = "com.mycompany_IV1201mavenproject_war_1.0-SNAPSHOTPU")
     private EntityManager em;
     private static boolean login;
     private static boolean logout = false;
