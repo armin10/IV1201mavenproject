@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html">
     <h:head>
-        <title>Welcome to the Gnome Shop</title>
+        <title>Find jobs</title>
     </h:head>
     <h:body>
-        <h1>Welcome to the Gnome Shop</h1>
+        <h1>Find jobs</h1>
             <h1 rendered ="#{acctManager.fillDB()} "/> <!-- inputed data -->
             <h1 rendered ="#{acctManager.cart()} "/> <!-- inputed data -->
 
@@ -122,13 +122,13 @@
         
         
               
-           <h3>Shopping cart</h3>
+           <h3>Applies</h3>
 
         <p>
             
             <h:outputText id="resultcart" value="#{acctManager.resultcart}"/>  <!-- skriver ut resultatet -->
          <h:form>
-            <h:commandButton value="Buy" action="#{acctManager.buy()}"/> <!-- Updates page, everytime page is updated it will chkec results. -->
+            <h:commandButton value="APPLY" action="#{acctManager.buy()}"/> <!-- Updates page, everytime page is updated it will chkec results. -->
         </h:form> 
 
         </p>
