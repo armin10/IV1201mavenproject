@@ -58,7 +58,7 @@ public class CashierFacade {
         return "Login failed!";
     }
 
-    public boolean register(String account, String password) {
+    public boolean register(String account, String password, String email, String firstname, String lastname) {
 
         if (em.find(Accounts.class, account) != null) {
             System.err.println(" Account exists!!");

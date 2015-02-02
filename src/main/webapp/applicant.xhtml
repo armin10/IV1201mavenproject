@@ -7,6 +7,45 @@
     </h:head>
     <h:body>
         Hello from Facelets
+        
+   <h:form>
+            <h4>Login</h4>
+            <p>
+                <h:outputLabel for="account" value="Account name: "/>
+                <h:inputText id="account" value="#{acctManager.account}"/>
+                <h:outputLabel for="password" value="Password: "/>
+                <h:inputSecret id="password" value="#{acctManager.password}"/>
+            </p>
+            <p>
+                <h:commandButton value="Login" action="#{acctManager.login()}"/> <!-- Updates page, everytime page is updated it will chkec results. -->
+                <h:commandButton value="Logout" action="#{acctManager.logout()}"/> <!-- Updates page, everytime page is updated it will chkec results. -->
+           
+            </p>
+            <hr/>
+        </h:form>
+        
+        <h:form>
+
+            <h4>Register Account</h4>
+            <p>
+                <h:outputLabel for="account" value="Username: "/>
+                <h:inputText id="account" value="#{acctManager.account}"/>
+                <h:outputLabel for="password" value="Password: "/>
+                <h:inputSecret id="password" value="#{acctManager.password}"/>
+                <h:ouputLabel for="email" value ="Email Address"#{acctManager.email}"/>
+                <h:inputText id="email" value ="#{acctManager.email}"/>
+                <h:ouputLabel for="firstname" value ="First Name#{acctManager.email}"/>
+                <h:inputText id="firstname" value ="#{acctManager.firstname}"/>
+                <h:ouputLabel for="lastname" value ="Last Name"#{acctManager.email}"/>
+                <h:inputText id="lastname" value ="#{acctManager.lastname}"/>
+                
+                
+            </p>
+            <p>
+                <h:commandButton value="Register" action="#{acctManager.register()}"/> <!-- Updates page, everytime page is updated it will chkec results. -->
+            </p>
+            <hr/>
+        </h:form>
     </h:body>
 </html>
 
