@@ -58,30 +58,16 @@ public class CashierFacade {
         return "Login failed!";
     }
 
-    public String register(String account, String password) {
+    public boolean register(String account, String password) {
 
         if (em.find(Accounts.class, account) != null) {
-            return "Account exists!!";
+            System.err.println(" Account exists!!");
+            return false;
         }
 
         em.persist(new Accounts(account, password, 0));
-        return "Account created";
-
-    }
-
-    public String deposit(String account, String amount) {
-
-        int balance = Integer.parseInt(amount);
-        Accounts acc = em.find(Accounts.class, account); //gets an entry
-        if (acc != null) {
-            if (account.equals(acc.getaccount())) { //check if entry contains account and password
-                int current = acc.getbalance();
-                acc.setbalance(current + balance);
-                currentAccount = acc;
-                return "Deposit: " + acc.getbalance();
-            }
-        }
-        return "Deposit failed";
+        System.out.println("Account created");
+        return true;
     }
 
     public String balance() {
@@ -273,7 +259,7 @@ public class CashierFacade {
         em.persist(new Cart("Little Gnome", 0)); //ändra sen
 
         em.persist(new Accounts("admin", "admin", 0));
-
+        
         return "";
     }
 }

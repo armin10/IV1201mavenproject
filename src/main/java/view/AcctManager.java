@@ -9,6 +9,7 @@ import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import model.accountInterface;
 
 /**
  * AcctManager manages many requests concerning
@@ -38,6 +39,7 @@ public class AcctManager implements Serializable {
     private String additem;
     private String resultcart;
     private String banned;
+    private accountInterface accountI;
     
     private static String online = null;
     private static String status = null;
@@ -108,25 +110,16 @@ public class AcctManager implements Serializable {
 
     public String register() {
         try {
-         //   startConversation();
-            // transactionFailure = null;
-            result = cashierFacade.register(account, password); // kurs och vad hur mycket som ska ändras
+            startConversation();
+             transactionFailure = null;
+            success = cashierFacade.register(account, password); 
+            
         } catch (Exception e) {
             handleException(e);
         }
         return jsf22Bugfix();
     }
 
-    public String deposit() {
-        try {
-
-            result = cashierFacade.deposit(account, balance);
-        } catch (Exception e) {
-            handleException(e);
-
-        }
-        return jsf22Bugfix();
-    }
 
     public String balance() {
         try {
@@ -234,6 +227,13 @@ public class AcctManager implements Serializable {
         return jsf22Bugfix();
     }
     
+         
+           
+           
+           
+           
+   //SETTERS AND GETTERS        
+           
     public void setaccount(String account) {
         this.account = account;
     }
@@ -250,6 +250,7 @@ public class AcctManager implements Serializable {
         return null;
     }
 
+    
     public void setbalance(String balance) {
         this.balance = balance;
     }
@@ -287,7 +288,7 @@ public class AcctManager implements Serializable {
         result = null;
     }
    
-    public boolean getSuccess(){
+    public boolean getsuccess(){
     return success;
     }
     
